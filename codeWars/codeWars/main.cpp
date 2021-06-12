@@ -6,12 +6,9 @@
 
 int main()
 {
-    // to_postfix("2+7*5") // Should return "275*+"
-// to_postfix("3*3/(7+1)") // Should return "33*71+/"
-// to_postfix("5+(6-2)*9+3^(7-1)") // Should return "562-9*+371-^+"
-// to_postfix("1^2^3") // Should return "123^^"
-    /*std::cout << infixToPostfix("2+7*5") << "\n";
-    std::cout << infixToPostfix("3*3/(7+1)") << "\n";*/
-    std::cout << infixToPostfix("5+(6-2)*9+3^(7-1)") << "\n";
-    std::cout << infixToPostfix("1^2^3") << "\n";
+	
+	std::cout << path_finder("......\n......\n......\n......\n......\n......") << "\n";
+	std::cout << path_finder("......\n......\n......\n......\n.....W\n....W.") << "\n";
+	std::cout << path_finder(".W.\n.W.\n...") << "\n";
+	std::cout << path_finder(".W.\n.W.\nW..") << "\n";	
 }

@@ -13,3 +13,5 @@ int last_digit(const std::string&, const std::string&);
 // to_postfix("5+(6-2)*9+3^(7-1)") // Should return "562-9*+371-^+"
 // to_postfix("1^2^3") // Should return "123^^"
 std::string infixToPostfix(std::string);
+
+bool path_finder(std::string maze);

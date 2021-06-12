@@ -25,6 +25,7 @@
     <ClCompile Include="inFixToPostfix.cpp" />
     <ClCompile Include="lastDigit.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="path_finder.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
