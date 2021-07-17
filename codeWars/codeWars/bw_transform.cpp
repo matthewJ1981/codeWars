@@ -3,9 +3,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "Timer.h"
 
 std::pair<std::string, int> encode(const std::string& s) {
 
+	Timer t;
 	//string to hold permutations
 	std::string str = s;
 
@@ -23,22 +25,22 @@ std::pair<std::string, int> encode(const std::string& s) {
 	}
 
 	//## Debug
-	for (const auto& s : matrix)
-		std::cerr << s << "\n";
-	std::cerr << "\n";
+	//for (const auto& s : matrix)
+	//	std::cerr << s << "\n";
+	//std::cerr << "\n";
 	//Debug
 
 	//Sort matrix by row
 	std::sort(matrix.begin(), matrix.end());
 	//Find the index of the original string
-	std::size_t index = std::find(matrix.begin(), matrix.end(), s) - matrix.begin();
+	auto index = std::find(matrix.begin(), matrix.end(), s) - matrix.begin();
 
 	//## Debug
-	std::cerr << index << "\n\n";
-	
-	for (const auto& s : matrix)
-		std::cerr << s << "\n";
-	std::cerr << "\n";
+	//std::cerr << index << "\n\n";
+	//
+	//for (const auto& s : matrix)
+	//	std::cerr << s << "\n";
+	//std::cerr << "\n";
 	//##
 
 	//Construct a return string that consists of the last chracter of each row
@@ -47,12 +49,33 @@ std::pair<std::string, int> encode(const std::string& s) {
 		str += s.back();
 
 	//## Debug
-	std::cerr << str;
+	//std::cerr << str << "\n";
 	//##
 
-	return { str, index };
+	return { str, int(index) };
 }
 
 std::string decode(const std::string& s, int n) {
-	return "";
+	
+	//construct a matrix of s.length() empty strings
+	std::vector<std::string> matrix{ s.length() };
+
+	//Insert character j of s into the beginning of string j and sort s.length() times 
+	for (size_t i = 0; i < s.length(); ++i)
+	{
+		for (size_t j = 0; j < matrix.size(); ++j)
+		{
+			matrix[j].insert(matrix[j].begin(), s.at(j));
+		}
+
+		std::sort(matrix.begin(), matrix.end());
+	}
+
+	//## Debug
+	//for (const auto& s : matrix)
+	//	std::cerr << s << "\n";
+	//std::cerr << "\n";
+	//Debug
+
+	return matrix.at(n);
 }
