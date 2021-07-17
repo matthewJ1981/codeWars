@@ -5,43 +5,37 @@
 #include <algorithm>
 #include "TimeAccumulator.h"
 #include <map>
+#include <list>
+#include <set>
+
+std::string rotate(std::string& str)
+{
+	size_t length = str.length();
+	str = str[length - 1] + str.substr(0, length - 1);
+	return str;
+}
 
 std::pair<std::string, int> encode(const std::string& s) {
 
+	if (s == "")
+		return { s, 0 };
+
 	TimeAccumulator t;
 
-	//string to hold permutations
 	std::string str = s;
-
-	t.Mark("str");
-
 	//matrix of permutations, the first permutaiton is the original string
-	std::vector<std::string> matrix{ str };
+	std::set<std::string> matrix{ str };
 
 	t.Mark("matrix");
 
 	//There will be s.length() permutations, the first one (s) is already stored
 	for (std::size_t i = 0; i < s.length() - 1; ++i)
-	{
-		//Get the last permutation
-		str = matrix.at(i);
-
-		//Get the next permutation
-		std::rotate(str.rbegin(), str.rbegin() + 1, str.rend());
-
-		//Store the next permutation
-		matrix.push_back(str);
-	}
+		matrix.insert(rotate(str));
 
 	t.Mark("permutations");
 
-	//Sort matrix by row
-	std::sort(matrix.begin(), matrix.end());
-
-	t.Mark("sort");
-
 	//Find the index of the original string
-	auto index = std::find(matrix.begin(), matrix.end(), s) - matrix.begin();
+	auto index = std::distance(matrix.begin(), std::find(matrix.begin(), matrix.end(), s));
 
 	t.Mark("find");
 
@@ -67,6 +61,9 @@ size_t helper(std::vector<size_t>& T, size_t i, size_t n)
 }
 
 std::string decode(const std::string& s, int n) {
+
+	if (s == "")
+		return s;
 
 	TimeAccumulator t;
 
