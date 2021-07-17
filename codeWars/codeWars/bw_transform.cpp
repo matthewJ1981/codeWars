@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include "TimeAccumulator.h"
+#include <map>
 
 std::pair<std::string, int> encode(const std::string& s) {
 
@@ -16,44 +17,33 @@ std::pair<std::string, int> encode(const std::string& s) {
 
 	//matrix of permutations, the first permutaiton is the original string
 	std::vector<std::string> matrix{ str };
-	//There will be s.length() permutations, the first one (s) is already stored
 
 	t.Mark("matrix");
 
+	//There will be s.length() permutations, the first one (s) is already stored
 	for (std::size_t i = 0; i < s.length() - 1; ++i)
 	{
 		//Get the last permutation
 		str = matrix.at(i);
+
 		//Get the next permutation
 		std::rotate(str.rbegin(), str.rbegin() + 1, str.rend());
+
 		//Store the next permutation
 		matrix.push_back(str);
 	}
 
 	t.Mark("permutations");
 
-	//## Debug
-	//for (const auto& s : matrix)
-	//	std::cerr << s << "\n";
-	//std::cerr << "\n";
-	//Debug
-
 	//Sort matrix by row
 	std::sort(matrix.begin(), matrix.end());
 
 	t.Mark("sort");
+
 	//Find the index of the original string
 	auto index = std::find(matrix.begin(), matrix.end(), s) - matrix.begin();
 
 	t.Mark("find");
-
-	//## Debug
-	//std::cerr << index << "\n\n";
-	//
-	//for (const auto& s : matrix)
-	//	std::cerr << s << "\n";
-	//std::cerr << "\n";
-	//##
 
 	//Construct a return string that consists of the last chracter of each row
 	str = "";
@@ -61,50 +51,76 @@ std::pair<std::string, int> encode(const std::string& s) {
 		str += s.back();
 
 	t.Mark("result");
-	//## Debug
-	//std::cerr << str << "\n";
-	//##
-
 	t.Total();
 
 	return { str, int(index) };
+}
+
+//find correct corresponding character from the last column of the matrix
+size_t helper(std::vector<size_t>& T, size_t i, size_t n)
+{
+	if (i == 0)
+		return T[n];
+
+	else
+		return T[helper(T, i - 1, n)];
 }
 
 std::string decode(const std::string& s, int n) {
 
 	TimeAccumulator t;
 
-	//construct a matrix of s.length() empty strings
-	std::vector<std::string> matrix{ s.length() };
+	//Store the alphabet used in the string with map containing the index of the last found occurence
+	//of each letter in the first column on the matrix M
+	std::map<char, int> alphabet;
+	for (char c : s)
+		alphabet.insert({ c, -1 });
 
-	//for (size_t i = 0; i < matrix.size(); ++i)
-	//	matrix[i] = std::string(s.length(), ' ');
+	t.Mark("Alphabet");
 
-	//std::cerr << matrix[0] << "\n";
+	//Sorting the last column provide the first column of M
+	std::string f = s;
+	std::sort(f.begin(), f.end());
 
-	t.Mark("matrix");
+	t.Mark("f");
 
-	//Insert character j of s into the beginning of string j and sort s.length() times 
-	for (size_t i = 0; i < s.length(); ++i)
+	//Develop a mapping from characters in the last column to characters in the first column
+	//Update the alphabet map to keep track of last found indexes of each letter.
+	//Add resulting index from the first column to a vector T
+	std::vector<size_t> T;
+
+	for (auto sIt = s.begin(); sIt != s.end(); ++sIt)
 	{
-		for (size_t j = 0; j < matrix.size(); ++j)
+		char sCh = *sIt;
+		for (auto fIt = f.begin(); fIt != f.end(); ++fIt)
 		{
-			matrix[j].insert(matrix[j].begin(), s.at(j));
-			//matrix[j][s.length() - 1 - i] = s[j];
-		}	
-
-		std::sort(matrix.begin(), matrix.end());
+			char fCh = *fIt;
+			if (sCh == fCh)
+			{
+				int index = int(fIt - f.begin());
+				if (index > alphabet[fCh])
+				{
+					alphabet[fCh] = index;
+					T.push_back(index);
+					break;
+				}
+			}
+		}
 	}
 
+	//Use helper function to recursively search for the correct position of each character in the original string
+	size_t length = s.length(); 
+	std::string result(length - 1, '-');
+	result += s[n];
+
+	for (size_t i = 0; i < length - 1; ++i)
+	{
+		result[length - 2 - i] = s[helper(T, i, n)];
+	}
+
+
 	t.Mark("addsort");
-
-	
-	for (const auto& s : matrix)
-		std::cerr << s << "\n";
-	std::cerr << "\n";
-
-
 	t.Total();
 
-	return matrix.at(n);
+	return result;
 }

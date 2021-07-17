@@ -7,10 +7,11 @@
 
 int main()
 {
-	const std::string s{ "wefliuhawelfigawleifglawegflaiwuegfliuawheflioawhefogawefliug" };
+	const std::string s{ "abowuwheflknwepopwecwpoejfiouwgkjqnlckjwpechowev,jwbecywgelc;iohj;ewoidhlwevh,kqjwhdlivewcljnsd;ocihslhvbwlieuylwyv,hbcloiuytwei;gfr;wiuecbkwdygcksdh" };
 	auto encoded = encode(s);
 	auto decoded = decode(encoded.first, encoded.second);
 	
+	std::cout << decoded << "\n";
 	assert(s == decoded);
 
 	//assert("bananabar"== decode( "nnbbraaaa", 4 ));
