@@ -3,17 +3,23 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "Timer.h"
+#include "TimeAccumulator.h"
 
 std::pair<std::string, int> encode(const std::string& s) {
 
-	Timer t;
+	TimeAccumulator t;
+
 	//string to hold permutations
 	std::string str = s;
+
+	std::cerr << "str: " << t.Mark() << "\n";
 
 	//matrix of permutations, the first permutaiton is the original string
 	std::vector<std::string> matrix{ str };
 	//There will be s.length() permutations, the first one (s) is already stored
+
+	std::cerr << "matrix: " << t.Mark() << "\n";
+
 	for (std::size_t i = 0; i < s.length() - 1; ++i)
 	{
 		//Get the last permutation

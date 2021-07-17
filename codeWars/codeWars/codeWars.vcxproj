@@ -24,6 +24,7 @@
     <ClInclude Include="infixToPostfix.h" />
     <ClInclude Include="last_digit.h" />
     <ClInclude Include="snail_map.h" />
+    <ClInclude Include="TimeAccumulator.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>
@@ -33,6 +34,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="path_finder.cpp" />
     <ClCompile Include="snail.cpp" />
+    <ClCompile Include="TimeAccumulator.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
