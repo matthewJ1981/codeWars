@@ -2,14 +2,55 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 std::pair<std::string, int> encode(const std::string& s) {
 
-	std::vector<std::string> matrix;
+	//string to hold permutations
 	std::string str = s;
-	std::rotate(str.rbegin(), str.rbegin() + 1, str.rend());
-	std::cout << str;
-	return { "", 0 };
+
+	//matrix of permutations, the first permutaiton is the original string
+	std::vector<std::string> matrix{ str };
+	//There will be s.length() permutations, the first one (s) is already stored
+	for (std::size_t i = 0; i < s.length() - 1; ++i)
+	{
+		//Get the last permutation
+		str = matrix.at(i);
+		//Get the next permutation
+		std::rotate(str.rbegin(), str.rbegin() + 1, str.rend());
+		//Store the next permutation
+		matrix.push_back(str);
+	}
+
+	//## Debug
+	for (const auto& s : matrix)
+		std::cerr << s << "\n";
+	std::cerr << "\n";
+	//Debug
+
+	//Sort matrix by row
+	std::sort(matrix.begin(), matrix.end());
+	//Find the index of the original string
+	std::size_t index = std::find(matrix.begin(), matrix.end(), s) - matrix.begin();
+
+	//## Debug
+	std::cerr << index << "\n\n";
+	
+	for (const auto& s : matrix)
+		std::cerr << s << "\n";
+	std::cerr << "\n";
+	//##
+
+	//Construct a return string that consists of the last chracter of each row
+	str = "";
+	for (const auto& s : matrix)
+		str += s.back();
+
+	//## Debug
+	std::cerr << str;
+	//##
+
+	return { str, index };
 }
 
 std::string decode(const std::string& s, int n) {

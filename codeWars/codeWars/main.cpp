@@ -6,6 +6,6 @@
 
 int main()
 {
-	encode("Hello");
+	encode("bananabar");
 		
 }		
