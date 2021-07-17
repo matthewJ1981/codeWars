@@ -1,4 +1,4 @@
-#include "codeWars.h"
+#include "infixToPostfix.h"
 #include <cctype>
 #include <stack>
 #include <stdexcept>
