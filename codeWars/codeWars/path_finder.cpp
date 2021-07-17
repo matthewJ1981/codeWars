@@ -1,4 +1,4 @@
-#include "codeWars.h"
+#include "path_finder.h"
 #include <algorithm>
 #include <vector>
 #include <stack>
