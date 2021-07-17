@@ -1,4 +1,4 @@
-#include "codeWars.h"
+#include "snail_map.h"
 
 //Enumeration to keep track of the direction iterating through the n * n grid
 enum class dirs {
