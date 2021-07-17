@@ -1,0 +1,124 @@
+str 0.0012894
+matrix 0.0005866
+permutations 0.0015455
+sort 0.0005534
+find 4.02e-05
+result 5.45e-05
+total: 0.0040696
+
+matrix 0.0007253
+addsort 0.0418644
+total: 0.0425897
+
+str 0.0007565
+matrix 0.0006838
+permutations 0.0016292
+sort 0.0005752
+find 6.16e-05
+result 5.03e-05
+total: 0.0037566
+
+matrix 0.0004932
+addsort 0.037792
+total: 0.0382852
+
+str 0.0006716
+matrix 0.000427
+permutations 0.0013464
+sort 0.0005074
+find 6.84e-05
+result 7.55e-05
+total: 0.0030963
+
+matrix 0.0006023
+addsort 0.0409404
+total: 0.0415427
+
+str 0.0030021
+matrix 0.00042
+permutations 0.0012429
+sort 0.0004984
+find 3.8e-05
+result 3.78e-05
+total: 0.0052392
+
+matrix 0.0005856
+addsort 0.0381695
+total: 0.0387551
+
+str 0.0010072
+matrix 0.0006418
+permutations 0.0015294
+sort 0.0005093
+find 5.56e-05
+result 6.57e-05
+total: 0.003809
+
+matrix 0.0005777
+addsort 0.0112651
+total: 0.0118428
+
+str 0.0006546
+matrix 0.0004622
+permutations 0.0012226
+sort 0.0003973
+find 2.69e-05
+result 3.73e-05
+total: 0.0028009
+
+matrix 0.0005184
+addsort 0.011342
+total: 0.0118604
+
+str 0.0008152
+matrix 0.0007016
+permutations 0.0018026
+sort 0.0004416
+find 2.95e-05
+result 4.41e-05
+total: 0.0038346
+
+str 0.0008388
+matrix 0.0005087
+permutations 0.0013536
+sort 0.0005982
+find 4e-05
+result 7.5e-05
+total: 0.0034143
+
+matrix 0.0016823
+addsort 0.0371729
+total: 0.0388552
+
+str 0.0015397
+matrix 0.0005136
+permutations 0.0014489
+sort 0.0005366
+find 4.73e-05
+result 5.44e-05
+total: 0.0041405
+
+matrix 0.0014459
+addsort 0.032252
+total: 0.0336979
+
+str 0.0008088
+matrix 0.0005427
+permutations 0.0015085
+sort 0.0005809
+find 5.46e-05
+result 7.37e-05
+total: 0.0035692
+
+str 0.00061
+matrix 0.0004525
+permutations 0.0014083
+sort 0.0004937
+find 4.87e-05
+result 5.63e-05
+total: 0.0030695
+
+matrix 0.0004854
+addsort 0.0399945
+total: 0.0404799
+

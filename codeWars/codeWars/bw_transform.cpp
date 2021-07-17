@@ -12,13 +12,13 @@ std::pair<std::string, int> encode(const std::string& s) {
 	//string to hold permutations
 	std::string str = s;
 
-	std::cerr << "str: " << t.Mark() << "\n";
+	t.Mark("str");
 
 	//matrix of permutations, the first permutaiton is the original string
 	std::vector<std::string> matrix{ str };
 	//There will be s.length() permutations, the first one (s) is already stored
 
-	std::cerr << "matrix: " << t.Mark() << "\n";
+	t.Mark("matrix");
 
 	for (std::size_t i = 0; i < s.length() - 1; ++i)
 	{
@@ -30,7 +30,7 @@ std::pair<std::string, int> encode(const std::string& s) {
 		matrix.push_back(str);
 	}
 
-	std::cerr << "permutations: " << t.Mark() << "\n";
+	t.Mark("permutations");
 
 	//## Debug
 	//for (const auto& s : matrix)
@@ -41,11 +41,11 @@ std::pair<std::string, int> encode(const std::string& s) {
 	//Sort matrix by row
 	std::sort(matrix.begin(), matrix.end());
 
-	std::cerr << "sort: " << t.Mark() << "\n";
+	t.Mark("sort");
 	//Find the index of the original string
 	auto index = std::find(matrix.begin(), matrix.end(), s) - matrix.begin();
 
-	std::cerr << "find: " << t.Mark() << "\n";
+	t.Mark("find");
 
 	//## Debug
 	//std::cerr << index << "\n\n";
@@ -60,12 +60,13 @@ std::pair<std::string, int> encode(const std::string& s) {
 	for (const auto& s : matrix)
 		str += s.back();
 
-	std::cerr << "result: " << t.Mark() << "\n";
+	t.Mark("result");
 	//## Debug
 	//std::cerr << str << "\n";
 	//##
 
-	std::cerr << "total: " << t.Total() << "\n";
+	t.Total();
+
 	return { str, int(index) };
 }
 
@@ -76,7 +77,12 @@ std::string decode(const std::string& s, int n) {
 	//construct a matrix of s.length() empty strings
 	std::vector<std::string> matrix{ s.length() };
 
-	std::cerr << "matrix: " << t.Mark() << "\n";
+	//for (size_t i = 0; i < matrix.size(); ++i)
+	//	matrix[i] = std::string(s.length(), ' ');
+
+	//std::cerr << matrix[0] << "\n";
+
+	t.Mark("matrix");
 
 	//Insert character j of s into the beginning of string j and sort s.length() times 
 	for (size_t i = 0; i < s.length(); ++i)
@@ -84,20 +90,21 @@ std::string decode(const std::string& s, int n) {
 		for (size_t j = 0; j < matrix.size(); ++j)
 		{
 			matrix[j].insert(matrix[j].begin(), s.at(j));
-		}
+			//matrix[j][s.length() - 1 - i] = s[j];
+		}	
 
 		std::sort(matrix.begin(), matrix.end());
 	}
 
-	std::cerr << "addsort: " << t.Mark() << "\n";
+	t.Mark("addsort");
 
-	//## Debug
-	//for (const auto& s : matrix)
-	//	std::cerr << s << "\n";
-	//std::cerr << "\n";
-	//Debug
+	
+	for (const auto& s : matrix)
+		std::cerr << s << "\n";
+	std::cerr << "\n";
 
-	std::cerr << "total: " << t.Total() << "\n";
+
+	t.Total();
 
 	return matrix.at(n);
 }
