@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 int last_digit(const std::string&, const std::string&);
 
 // Construct a function that, when given a string containing an expression in infix notation, will return an identical expression in postfix notation.
@@ -15,3 +16,5 @@ int last_digit(const std::string&, const std::string&);
 std::string infixToPostfix(std::string);
 
 bool path_finder(std::string maze);
+
+std::vector<int> snail(const std::vector<std::vector<int>>& snail_map);

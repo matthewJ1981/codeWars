@@ -32,5 +32,8 @@
     <ClCompile Include="path_finder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="snail.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
