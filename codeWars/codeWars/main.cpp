@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "codeWars.h" 
+#include "snail_map.h" 
 
 int main()
 {

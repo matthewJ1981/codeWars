@@ -15,7 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="codeWars.h">
+    <ClInclude Include="path_finder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="snail_map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="infixToPostfix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="last_digit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

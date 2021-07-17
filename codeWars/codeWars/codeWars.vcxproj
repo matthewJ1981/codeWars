@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="codeWars.h" />
+    <ClInclude Include="path_finder.h" />
+    <ClInclude Include="infixToPostfix.h" />
+    <ClInclude Include="last_digit.h" />
+    <ClInclude Include="snail_map.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="inFixToPostfix.cpp" />
