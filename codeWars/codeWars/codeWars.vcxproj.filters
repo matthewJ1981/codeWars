@@ -27,6 +27,9 @@
     <ClInclude Include="last_digit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="bw_transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lastDigit.cpp">
@@ -42,6 +45,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="snail.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bw_transform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

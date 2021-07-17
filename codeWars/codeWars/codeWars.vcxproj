@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bw_transform.h" />
     <ClInclude Include="path_finder.h" />
     <ClInclude Include="infixToPostfix.h" />
     <ClInclude Include="last_digit.h" />
     <ClInclude Include="snail_map.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bw_transform.cpp" />
     <ClCompile Include="inFixToPostfix.cpp" />
     <ClCompile Include="lastDigit.cpp" />
     <ClCompile Include="main.cpp" />
