@@ -30,6 +30,8 @@ std::pair<std::string, int> encode(const std::string& s) {
 		matrix.push_back(str);
 	}
 
+	std::cerr << "permutations: " << t.Mark() << "\n";
+
 	//## Debug
 	//for (const auto& s : matrix)
 	//	std::cerr << s << "\n";
@@ -38,8 +40,12 @@ std::pair<std::string, int> encode(const std::string& s) {
 
 	//Sort matrix by row
 	std::sort(matrix.begin(), matrix.end());
+
+	std::cerr << "sort: " << t.Mark() << "\n";
 	//Find the index of the original string
 	auto index = std::find(matrix.begin(), matrix.end(), s) - matrix.begin();
+
+	std::cerr << "find: " << t.Mark() << "\n";
 
 	//## Debug
 	//std::cerr << index << "\n\n";
@@ -54,17 +60,23 @@ std::pair<std::string, int> encode(const std::string& s) {
 	for (const auto& s : matrix)
 		str += s.back();
 
+	std::cerr << "result: " << t.Mark() << "\n";
 	//## Debug
 	//std::cerr << str << "\n";
 	//##
 
+	std::cerr << "total: " << t.Total() << "\n";
 	return { str, int(index) };
 }
 
 std::string decode(const std::string& s, int n) {
-	
+
+	TimeAccumulator t;
+
 	//construct a matrix of s.length() empty strings
 	std::vector<std::string> matrix{ s.length() };
+
+	std::cerr << "matrix: " << t.Mark() << "\n";
 
 	//Insert character j of s into the beginning of string j and sort s.length() times 
 	for (size_t i = 0; i < s.length(); ++i)
@@ -77,11 +89,15 @@ std::string decode(const std::string& s, int n) {
 		std::sort(matrix.begin(), matrix.end());
 	}
 
+	std::cerr << "addsort: " << t.Mark() << "\n";
+
 	//## Debug
 	//for (const auto& s : matrix)
 	//	std::cerr << s << "\n";
 	//std::cerr << "\n";
 	//Debug
+
+	std::cerr << "total: " << t.Total() << "\n";
 
 	return matrix.at(n);
 }
