@@ -1,4 +1,4 @@
-#include "codeWars.h"
+#include "last_digit.h"
 #include <cmath>
 
 int last_digit(const std::string& str1, const std::string& str2)
