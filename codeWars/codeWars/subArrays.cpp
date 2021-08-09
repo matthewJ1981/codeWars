@@ -33,5 +33,4 @@ void PrintMaxSubArrays(int arr[], int n, int k)
 	}
 
 	std::cout << arr[d.front()];
-
 }
