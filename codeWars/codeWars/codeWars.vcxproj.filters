@@ -36,6 +36,12 @@
     <ClInclude Include="TimeAccumulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="lcs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="subArrays.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lastDigit.cpp">
@@ -60,6 +66,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TimeAccumulator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lcs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="subArrays.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

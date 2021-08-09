@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bw_transform.h" />
+    <ClInclude Include="lcs.h" />
     <ClInclude Include="path_finder.h" />
     <ClInclude Include="infixToPostfix.h" />
     <ClInclude Include="last_digit.h" />
     <ClInclude Include="snail_map.h" />
+    <ClInclude Include="subArrays.h" />
     <ClInclude Include="TimeAccumulator.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
@@ -31,9 +33,11 @@
     <ClCompile Include="bw_transform.cpp" />
     <ClCompile Include="inFixToPostfix.cpp" />
     <ClCompile Include="lastDigit.cpp" />
+    <ClCompile Include="lcs.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="path_finder.cpp" />
     <ClCompile Include="snail.cpp" />
+    <ClCompile Include="subArrays.cpp" />
     <ClCompile Include="TimeAccumulator.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
