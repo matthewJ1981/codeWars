@@ -24,6 +24,7 @@
     <ClInclude Include="path_finder.h" />
     <ClInclude Include="infixToPostfix.h" />
     <ClInclude Include="last_digit.h" />
+    <ClInclude Include="RepresentAsSquares.h" />
     <ClInclude Include="snail_map.h" />
     <ClInclude Include="subArrays.h" />
     <ClInclude Include="TimeAccumulator.h" />
@@ -36,6 +37,7 @@
     <ClCompile Include="lcs.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="path_finder.cpp" />
+    <ClCompile Include="RepresentAsSquares.cpp" />
     <ClCompile Include="snail.cpp" />
     <ClCompile Include="subArrays.cpp" />
     <ClCompile Include="TimeAccumulator.cpp" />

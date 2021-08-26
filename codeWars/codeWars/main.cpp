@@ -3,10 +3,11 @@
 
 #include <iostream>
 #include <assert.h>
-#include "subArrays.h"
+#include "RepresentAsSquares.h"
 
 int main()
 {
-	int arr[]{ 3, 4, 5, 8, 1, 4, 10 };
-	PrintMaxSubArrays(arr, 7, 4);
+    auto result = RepresentAsSquares(11);
+    for (auto i : result)
+        std::cout << i << "\n";
 }		
